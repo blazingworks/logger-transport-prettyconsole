@@ -13,7 +13,7 @@
 
 </div>
 
-🌍 Hello World NPM Library by BlazingWorks, acts as a boilerplate for future libraries
+🔌 Pretty Console Transport for @blazingworks/logger
 
 ## Tech Stack
 
@@ -24,16 +24,10 @@
 
 ## Installation
 
-### NPM
-
 ```bash
-npm install @blazingworks/logger-transport-prettyconsole
-```
-
-### Yarn
-
-```bash
-yarn add @blazingworks/logger-transport-prettyconsole
+npm install @blazingworks/logger @blazingworks/logger-transport-prettyconsole
+yarn add @blazingworks/logger @blazingworks/logger-transport-prettyconsole
+pnpm add @blazingworks/logger @blazingworks/logger-transport-prettyconsole
 ```
 
 ## Usage
@@ -41,21 +35,31 @@ yarn add @blazingworks/logger-transport-prettyconsole
 ### TypeScript
 
 ```typescript
-import { helloWorld } from "@blazingworks/logger-transport-prettyconsole";
+import { Logger } from "@blazingworks/logger";
+import PrettyConsoleTransport from "@blazingworks/logger-transport-prettyconsole";
 
-console.log(helloWorld());
-// or
-console.log(helloWorld("Nagi Aoe"));
+const logger = new Logger({
+    transports: [
+        {
+            transport: new PrettyConsoleTransport({}),
+        },
+    ],
+});
 ```
 
 ### JavaScript
 
 ```javascript
-const { helloWorld } = require("@blazingworks/logger-transport-prettyconsole");
+const { Logger } = require("@blazingworks/logger");
+const PrettyConsoleTransport = require("@blazingworks/logger-transport-prettyconsole");
 
-console.log(helloWorld());
-// or
-console.log(helloWorld("Reiji Kurose"));
+const logger = new Logger({
+    transports: [
+        {
+            transport: new PrettyConsoleTransport({}),
+        },
+    ],
+});
 ```
 
 ## How to report issues/questions
